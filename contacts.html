@@ -49,8 +49,8 @@
         <div class="top-menu">
           <ul>
             <li><a href="resume.html" class="lnk">Resume</a></li>
-            <li><a href="portfolio.html" class="lnk">Portfolio</a></li>
-            <!-- <li><a href="/blog" class="lnk">Blog</a></li> -->
+            <!--	<li><a href="portfolio.html" class="lnk">Portfolio</a></li> -->
+			<!-- <li><a href="/blog" class="lnk">Blog</a></li> -->
             <li class="active"><a href="contacts.html" class="btn">Contacts</a></li>
           </ul>
         </div>
@@ -104,15 +104,15 @@
           <div class="contact_form">
             <form method="post" action="http://www.bencesibin.com/contact-me">
               <div class="group-val">
-                <input type="text" name="name" placeholder="Name" required/>
+                <input type="text" name="name" placeholder="Name" id="name" required/>
               </div>
               <div class="group-val">
-                <input type="text" name="email" placeholder="Email" required/>
+                <input type="text" name="email" placeholder="Email" id="email" required/>
               </div>
               <div class="group-val ct-gr">
-                <textarea name="message" placeholder="Message" required></textarea>
+                <textarea name="message" placeholder="Message" id="message" required></textarea>
               </div>
-              <button type="submit" class="btn fill" data-text="Send Message">Send Message</button>
+              <button type="submit" class="btn fill" onclick="sendMail(); return false">Send Message</button>
             </form>
             <div class="alert-success">
               <p>Thanks, your message is sent successfully. We will contact you shortly!</p>
@@ -154,9 +154,24 @@
 
 	<!-- Main Scripts -->
 	<script src="bencesibin/js/glitche-scripts.js"></script>
-
 <!--
-<script type="text/javascript"> <![CDATA[ (function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script>
+<textarea id="myText">
+    Lorem ipsum...
+</textarea>
+<button onclick="sendMail(); return false">Send</button>
+-->
+<script type="text/javascript"> 
+function sendMail() {
+    var link = "mailto:bencesibin@gmail.com"
+             + "?subject=" + escape("Have a good day.")
+             + "&body=" + escape("    Hello,\n\t" + document.getElementById('message').value + ".\n \n \n    regards,\n    " + document.getElementById('name').value + " (" + document.getElementById('email').value + ")\n \n \n");
+
+    window.location.href = link;
+}
+
+</script>
+<!--
+<![CDATA[ (function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script>
 -->
 </body>
 </html>
