@@ -1,0 +1,38 @@
+<button (click)="generateRandomNumber()">generate</button>
+<button (click)="play()">play</button>
+<!-- <pre> {{RandNum | json}} </pre> -->
+
+<div>
+
+  <span *ngFor="let chosen of chosenRandNum">
+    {{chosen}}
+  </span>
+
+  <table border='2'>
+    <thead>
+      <th>B</th>
+      <th>I</th>
+      <th>N</th>
+      <th>G</th>
+      <th>O</th>
+    </thead>
+    <tr *ngFor="let row of RandNum; let i=index">
+      <td *ngFor="let col of row; let j=index" width="10px">
+        <div class="box" [@flyInOut]="'in'" [@selected]="!!selected" [(selected)]='!!selected' [appBS]="[i, j, col, chosenRandNum?.length]" [RandanGenratedArray]="chosenRandNum" [index]="selectedIndex" *ngIf="!(i == 2 && j == 2)"> {{col}} </div>
+        <div class="box" [@flyInOut]="'in'" *ngIf="i == 2 && j == 2"> X </div>
+      </td>
+    </tr>
+  </table>
+
+</div>
+<br>
+<hr>
+<div>
+  <table border='2'>
+    <tr *ngFor="let row of selectedIndex; let i=index">
+      <td *ngFor="let col of row; let j=index" width="10px">
+        <div class="box"> {{j}} - {{col}} </div>
+      </td>
+    </tr>
+  </table>
+</div>
